@@ -1,3 +1,8 @@
+/*
+
+TAG:- Greedy Approach
+
+ */
 public class CanPlaceFlowers {
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         int flag = 0;

@@ -16,3 +16,15 @@
 3. Multithreading
 4. Exceptional Handling
 5. IO operations (Serialization file handling )
+
+# Advance Java topics roughly includes:-
+1. Spring Framework
+2. Spring boot
+3. Spring Data JPA & Hibernate (JPQL, HQL & SQL Problems related to join and nested queries)
+4. Spring JDBC
+
+# Design Pattern
+1. LLD
+2. HLD
+3. SOLID principle
+4. practice problem

@@ -14,37 +14,36 @@ Example 2:
 Input: s = "leetcode"
 Output: "leotcede"
 
+TAG: 2-pointer
 
  */
 public class ReverseVowelOfString {
     public static String reverseVowels(String s) {
-        String[]temp = s.toLowerCase().split("");
-        StringBuilder sb = new StringBuilder();
+        char[]temp = s.toCharArray();
         int i=0;
         int j= temp.length-1;
         while(i<j){
-            if(test(temp[i]) && test(temp[j])){
-                String t = temp[i];
-                temp[i] = temp[j];
-                temp[j] = t;
+            while(i<j && !test(temp[i])){
                 i++;
-                j--;
-            } else if(!test(temp[i])){
-                i++;
-            } else if (!test(temp[j])) {
+            }
+            while(j>i && !test(temp[j])){
                 j--;
             }
+            char t = temp[i];
+            temp[i] = temp[j];
+            temp[j] = t;
+            i++;
+            j--;
         }
-        for(String t : temp){
-            sb.append(t);
-        }
-        return sb.toString();
+        return new String(temp);
     }
-    private static boolean test(String str) {
-        return str.matches("[a,e,i,o,u,A,E,I,O,U]");
+    private static boolean test(char ch) {
+        return ch=='a' || ch=='e'|| ch=='i' || ch=='o' || ch=='u' || ch=='A' || ch=='E'|| ch=='I' || ch=='O' || ch=='U';
     }
     public static void main(String[] args) {
         System.out.println(reverseVowels("hello"));
         System.out.println(reverseVowels("leetcode"));
+        System.out.println(reverseVowels("a.b,."));
+        System.out.println(reverseVowels("aA"));
     }
 }

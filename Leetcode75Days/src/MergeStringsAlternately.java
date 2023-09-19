@@ -27,12 +27,14 @@ Explanation: Notice that as word1 is longer, "cd" is appended to the end.
 word1:  a   b   c   d
 word2:    p   q
 merged: a p b q c   d
+
+TAG:- Two Pointer
  */
 public class MergeStringsAlternately {
     public static String mergeAlternately(String word1, String word2) {
-        if(word2.length()==0){
+        if(word2.isEmpty()){
             return word1;
-        } else if(word1.length()==0){
+        } else if(word1.isEmpty()){
             return word2;
         }
         return getMergedString(word1,word2);

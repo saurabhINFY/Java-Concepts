@@ -4,13 +4,33 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-record Tech(String name,int YOE){}
+record Tech(String name,int YOE){
+    @Override
+    public String toString() {
+        return "Tech{" +
+                "name='" + name + '\'' +
+                ", YOE=" + YOE +
+                '}';
+    }
+}
 record Employee(int id, String name, String dept, List<Tech> techStacks,double salary){
     private static int COUNT =0;
     public static void createEmployeeEntry(){
         COUNT++;
     }
-    Employee(int id,String name,String dept, List<Tech> techStacks,double salary){
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dept='" + dept + '\'' +
+                ", techStacks=" + techStacks +
+                ", salary=" + salary +
+                '}';
+    }
+
+    Employee(int id, String name, String dept, List<Tech> techStacks, double salary){
         if(COUNT >100){
             throw new IllegalArgumentException("Cannot create more Employees");
         } else if(id <=0 ){
@@ -25,6 +45,7 @@ record Employee(int id, String name, String dept, List<Tech> techStacks,double s
             this.salary = salary;
             createEmployeeEntry();
         }
+
     }
 }
 public class BasicStreamOperations {
